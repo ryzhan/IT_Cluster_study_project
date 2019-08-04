@@ -37,13 +37,6 @@ GRANT ALL
 _EOF_
 sed -i 's/^\[mysqld\]/\[mysqld\]\nbind-address = '192.168.56.30'/' /etc/my.cnf
 systemctl restart mysqld.service
-#echo "<<<<<<<<<<<<<<<<<< Create Mysql DB  >>>>>>>>>>>>>>>>>>>>"
-#mysql -u root -p ${rootpasswd} -e "create database moodle;" <<EOF
-#${DB_ROOT_PWD}
-#EOF
-#mysql -u root -p ${rootpasswd} -e "grant all privileges on moodle.* to 'moodle_devops'@'192.168.56.20' identified by 'redhat';" <<EOF
-#${DB_ROOT_PWD}
-#EOF
 echo "<<<<<<<<<<<<<<<<<< Mysql Fix  >>>>>>>>>>>>>>>>>>>>"
 PATH_MYSQL_CONF="/etc/my.cnf"
 /bin/cat <<EOM >$PATH_MYSQL_CONF
